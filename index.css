@@ -1,0 +1,348 @@
+/* Reset some default styles */
+body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #1a202c;
+}
+
+/* Navigation styling */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #1a202c;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.social-icons {
+    display: flex; /* Ensure icons remain inline */
+}
+
+.social-icons a {
+    margin-left: 15px;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d69e2e; /* Hover color */
+}
+
+/* Hero section styling */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    min-height: 70vh;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+    position: relative; /* Allows positioning of hero text */
+}
+
+.hero-image {
+    position: relative; /* For hero text overlay */
+}
+
+.hero-image img {
+    width: 30vw;
+    height: 70vh;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 5px solid #f7fafc;
+}
+
+.hero-text {
+    max-width: 500px;
+    text-align: left; /* Keep left-aligned always */
+    position: relative; /* Position normally for large screens */
+    z-index: 2; /* Ensure it appears above the image when overlaid */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add background for contrast when overlaid */
+    color: white; /* Ensure text color is visible */
+    padding: 20px; /* Add some padding for better readability */
+}
+
+.title {
+    color: #d69e2e;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2b6cb0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px; /* Add spacing for better touch targets */
+}
+
+h2 {
+    text-align: center;
+}
+
+.uploadedDocuments {
+    margin: 20px 0;
+}
+
+.uploadedDocuments h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.uploadedDocuments ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.uploadedDocuments li {
+    margin: 10px;
+    width: 150px; /* Set a fixed width for each item */
+    text-align: center; /* Center-align the content */
+}
+
+.uploadedDocuments a {
+    text-decoration: none;
+    color: #f6f7f9;
+}
+
+.uploadedDocuments a:hover {
+    text-decoration: underline;
+}
+
+.pdf-icon {
+    font-size: 100%;
+    box-sizing: border-box;
+    display: block; /* Changed to block to ensure vertical layout */
+    position: relative;
+    width: 3em; /* Adjusted size for better fit */
+    height: 4em; /* Adjusted size for better fit */
+    background-color: #eee;
+    background-image: url('pdf.png');
+    background-repeat: no-repeat;
+    background-size: 85% auto;
+    background-position: center 0.5em;
+    border-radius: 1px 2em 1px 1px;
+    border: 1px solid #ddd;
+    margin: 0 auto; /* Center the icon */
+}
+
+.pdf-icon:after {
+    content: 'PDF';
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 0.8em; /* Adjusted size */
+    text-align: center;
+    padding: 0.1em 0 0.1em;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 0.1em;
+    left: -0.5em; /* Adjusted position */
+    width: 2em; /* Adjusted size */
+    background: #da2525;
+    border-radius: 2px;
+}
+
+.document-name {
+    text-align: center;
+    margin-top: 0.5em;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.document-name:hover {
+    text-decoration: underline;
+}
+
+.success-tick {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+    color: #4caf50; /* Green color for success */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.success-tick.fade-out {
+    opacity: 0;
+}
+
+/* Responsive styling */
+@media (max-width: 1024px) {
+    header nav {
+        padding: 20px;
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .hero {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 30px;
+    }
+
+    .hero-image img {
+        width: 50vw;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .btn {
+        padding: 15px 30px; /* Larger padding for easier tapping */
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 20px;
+        justify-content: space-between; /* Keep items on the same line */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero-image img {
+        width: 80vw;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .uploadedDocuments li {
+        width: 100px; /* Reduce size for smaller screens */
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav {
+        padding: 10px;
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        align-items: center;
+    }
+
+    .hero {
+        padding: 10px;
+        justify-content: center; /* Center align items for small screens */
+    }
+
+    .hero-image img {
+        width: 100vw; /* Make image full width */
+        height: auto;
+    }
+
+    .hero-text {
+        position: absolute; /* Position text on top of the image */
+        top: 100px; /* Adjust top position */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        max-width: 100%; /* Adjust width for better fit */
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+
+    .uploadedDocuments li {
+        width: 80px; /* Further reduce size for very small screens */
+    }
+
+    .pdf-icon {
+        width: 2.5em;
+        height: 3em;
+    }
+}

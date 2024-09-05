@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Ram Prabesh - Personal Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ram Prabesh</div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/ramprabesh.yadav.100?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/_ramprabesh"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Ram Prabesh Profile Photo">
+        </div>
+        <div class="hero-text">
+            <p class="title">प्रशासकीय Adhikrit</p>
+            <h1>Ram प्रवेश यादव</h1>
+            <p>प्रशासकीय अधिकारीको रूपमा, म राम प्रवेश यादव प्रशासनिक कार्यहरूमा समर्पित छु। मेरो कार्यशैली, नवीनतम विचारधाराको प्रयोग र प्रविधिको प्रभावकारी उपयोगले मलाई मेरो क्षेत्रमा विशेष बनाउन मद्दत गरेको छ। म मेरो देशको सेवामा लाग्न सधैं तयार रहन्छु।</p>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="file" accept=".pdf" style="display: none;">
+                <a href="#" class="btn" id="uploadBtn">Upload files</a>
+            </form>
+        </div>
+    </section>
+    <section class="uploadedDocuments">
+        <h2>Uploaded Documents</h2>
+        <ul id="documentList"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+   document.getElementById('uploadBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('fileInput').click();
+});
+
+document.getElementById('fileInput').addEventListener('change', function() {
+    const formData = new FormData(document.getElementById('uploadForm'));
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message.includes('successfully')) {
+            showSuccessTick();
+            fetchDocuments(); // Fetch and display the updated list of documents
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('File upload failed!');
+    });
+});
+
+function fetchDocuments() {
+    fetch('/documents')
+    .then(response => response.json())
+    .then(files => {
+        const documentList = document.getElementById('documentList');
+        documentList.innerHTML = ''; // Clear the current list
+        files.forEach(file => {
+            const listItem = document.createElement('li');
+            listItem.style.listStyleType = 'none'; // Remove bullet points
+            listItem.style.marginBottom = '1em'; // Add some space between items
+
+            const iconSpan = document.createElement('span');
+            iconSpan.classList.add('pdf-icon');
+
+            const link = document.createElement('a');
+            link.href = `uploads/${file}`;
+            link.classList.add('document-name');
+            link.textContent = file;
+            link.target = '_blank'; // Open the file in a new tab
+
+            listItem.appendChild(iconSpan);
+            listItem.appendChild(link);
+            documentList.appendChild(listItem);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching documents:', error);
+    });
+}
+
+// Fetch and display the documents when the page loads
+window.onload = fetchDocuments;
+
+function showSuccessTick() {
+    const tick = document.createElement('div');
+    tick.classList.add('success-tick');
+    tick.innerHTML = '&#10004;'; // HTML code for a tick/check mark
+    document.body.appendChild(tick);
+
+    // Remove the tick mark after 2 seconds
+    setTimeout(() => {
+        tick.classList.add('fade-out');
+        tick.addEventListener('transitionend', () => tick.remove());
+    }, 2000);
+}
+
+</script>
+</html>
