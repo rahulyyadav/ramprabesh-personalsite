@@ -4,7 +4,7 @@
     "description": "A brief description of my project",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js",
+      "start": "node index.html",
       "build": "echo 'Build script not defined'"
     },
     "dependencies": {
