@@ -4,13 +4,9 @@
     "description": "A brief description of my project",
     "main": "index.js",
     "scripts": {
-<<<<<<< HEAD
+
       "start": "node server.js",
       "build": "echo 'Build script not defined'"
-=======
-        "start": "node index.html",
-        "build": "echo 'Build script not defined'"
->>>>>>> 1b3a60f (added multer)
     },
     "dependencies": {
         "express": "^4.17.1",
@@ -28,10 +24,5 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/rahulyyadav/ramprabesh-personalsite.git"
-    }
-<<<<<<< HEAD
-  }
-  
-=======
 }
->>>>>>> 1b3a60f (added multer)
+}
