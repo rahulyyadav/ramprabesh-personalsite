@@ -4,23 +4,34 @@
     "description": "A brief description of my project",
     "main": "index.js",
     "scripts": {
+<<<<<<< HEAD
       "start": "node server.js",
       "build": "echo 'Build script not defined'"
+=======
+        "start": "node index.html",
+        "build": "echo 'Build script not defined'"
+>>>>>>> 1b3a60f (added multer)
     },
     "dependencies": {
-      "express": "^4.17.1"
+        "express": "^4.17.1",
+        "multer": "^1.4.5-lts.1",
+        "yarn": "^1.22.22"
     },
     "devDependencies": {
-      "nodemon": "^2.0.7"
+        "nodemon": "^2.0.7"
     },
     "engines": {
-      "node": ">=20.15.1"
+        "node": ">=20.15.1"
     },
     "author": "Rahul Yadav",
     "license": "MIT",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/rahulyyadav/ramprabesh-personalsite.git"
+        "type": "git",
+        "url": "https://github.com/rahulyyadav/ramprabesh-personalsite.git"
     }
+<<<<<<< HEAD
   }
   
+=======
+}
+>>>>>>> 1b3a60f (added multer)
