@@ -1,0 +1,26 @@
+{
+    "name": "my-project",
+    "version": "1.0.0",
+    "description": "A brief description of my project",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "build": "echo 'Build script not defined'"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.7"
+    },
+    "engines": {
+      "node": ">=20.15.1"
+    },
+    "author": "Rahul Yadav",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/rahulyyadav/ramprabesh-personalsite.git"
+    }
+  }
+  
